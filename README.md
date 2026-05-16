@@ -1,57 +1,56 @@
-# OC/DS Projet 8 : Déployez un modèle dans le cloud
-Formation OpenClassrooms - Parcours data scientist - Projet Professionnalisant (Juillet - Août 2023)
+# BigData Architecture
 
-## Secteur : 
-Agroalimentaire
+**OpenClassrooms — Data Scientist Path | Project 8** (July – August 2023)
 
-## Technologies utilisées : 
-  * Jupyter Notebook
-  * Python
-    - pyspark
-      
-  * AWS 
-    - EC2
-    - S3
-    - EMR
+> Note: project deliverables (notebook, presentation) are in French.
 
-## Mots-clés : 
-BigData, Cluster de Machines
+## Sector
+AgriTech · Food Industry
 
-## Le contexte : 
-Le client, une startup de l’AgriTech, souhaite se faire connaître grâce à une application mobile permettant d’obtenir des informations sur un fruit à partir d’une simple photo.
+## Tech Stack
+- Jupyter Notebook
+- Python: PySpark
+- AWS: EC2, S3, EMR
 
-Le volume de données à traiter va augmenter très rapidement une fois l’application mise en production, ce qui va créer des besoins différents en matière d’infrastructures de stockage et de calculs. 
+## Keywords
+BigData, distributed computing, cloud infrastructure, machine cluster, PySpark
 
-## La mission : 
-Construire et tester une première version de l’architecture BigData nécessaire pour passer à l’échelle nos traitements sur de gros volumes de données, en s’inspirant d’un notebook laissé par un alternant qui vient de quitter l’entreprise.
+## Context
+An AgriTech startup is building a mobile app that identifies fruits from a photo. Once in production, the volume of images to process will grow rapidly, creating new requirements in terms of storage and compute infrastructure that a single machine cannot handle.
 
-## Livrables :
-* notebook.ipynb : notebook contenant les scripts en Pyspark exécutables
-* presentation.pdf : support de présentation pour la soutenance.
+## Mission
+Design and test a first version of the BigData architecture needed to scale data processing to large volumes, based on an existing notebook left by a former intern.
 
-## Méthodologie suivie : 
-Pour tester cette architecture BigData, on ne va pas entraîner de modèle de classification mais simplement nettoyer et pré-traiter le jeu de données d’entrées puis enregistrer le résultat, le tout sur le cloud. 
+> The goal of this project is **not** to train a classification model, but to validate that the architecture can handle the preprocessing and feature extraction pipeline at scale.
 
- 1. Tester le script pyspark en local :
-   *  nettoyage des données images
-   *  extraction des features (transfer learning avec modèle MobileNetV2)
-   *  réduction de dimensions (ACP)
-   *  stockage des données transformées
+## Deliverables
+- `notebook.ipynb` — PySpark scripts for the full preprocessing pipeline, executable on the cloud cluster
+- `presentation.pdf` — presentation slides (in French)
 
-2. Choisir les services AWS adaptés à notre problématique :
-  *  création compte AWS et création d’alertes dépassement de budget
-  *  création d’un bucket dans S3
-  *  configuration du service EMR
+## Methodology
 
-3. Exécuter le script sur un cluster de machines géré par EMR :
-  * lancement d’un cluster EMR
-  * connexion au serveur maître via un tunnel SSH
-  * exécution du notebook manuellement depuis JupyterHub hébergé sur le cluster
+1. **Local validation**
+   - Run and validate the PySpark script locally before moving to the cloud:
+     - Image data cleaning
+     - Feature extraction via transfer learning (MobileNetV2)
+     - Dimensionality reduction (PCA)
+     - Store transformed data
 
-## Compétences acquises :  
-* Utiliser les outils du cloud pour manipuler des données dans un environnement BigData
-* Identifier les outils du cloud permettant de mettre en place un environnement Big Data
-* Paralléliser des opérations de calcul avec Pyspark
+2. **AWS infrastructure setup**
+   - Create AWS account with budget alerts
+   - Create an S3 bucket for data storage
+   - Configure an EMR cluster
 
-## Data source : 
-https://www.kaggle.com/moltean/fruits
+3. **Cloud execution**
+   - Launch the EMR cluster
+   - Connect to the master node via SSH tunnel
+   - Execute the notebook from JupyterHub hosted on the cluster
+   - Verify output stored in S3
+
+## Skills
+- Identifying and configuring cloud services for a BigData use case
+- Parallelising data processing with PySpark
+- Setting up and running a managed machine cluster on AWS EMR
+
+## Data Source
+[Kaggle — Fruits 360](https://www.kaggle.com/moltean/fruits)
